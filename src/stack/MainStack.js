@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home/Home";
-// import SignUp from "../screens/SignUp";
+import Register from "../screens/Register";
+import Login from "../screens/Login";
 import MainTab from "./MainTab";
 // import Barber from "../screens/Barber";
 
@@ -11,16 +12,16 @@ const Stack = createStackNavigator();
 export default (props) => {
   return (
     <Stack.Navigator
-      initialRouteName="MainTab"
+      initialRouteName="Login"
       screenOptions={{
         headerShown: false,
       }}
     >
        <Stack.Screen name="Home" component={Home} />
        <Stack.Screen name="MainTab" component={MainTab} />
-      {/*<Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="SignUp" component={SignUp} />
-      <Stack.Screen name="Barber" component={Barber} /> */}
+       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
+     {/* <Stack.Screen name="Barber" component={Barber} /> */}
     </Stack.Navigator>
   );
 };
