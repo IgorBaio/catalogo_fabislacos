@@ -7,8 +7,8 @@ import { styles } from './styles';
 
 export default ({ navigation }) => {
   //#region Declarações
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('igor@email.com')
+  const [password, setPassword] = useState('123456789')
   const [messageError, setMessageError] = useState(null);
   //#endregion
 
@@ -31,7 +31,7 @@ export default ({ navigation }) => {
       await AsyncStorage.setItem('email', email)
       await AsyncStorage.setItem('password', password)
       await AsyncStorage.setItem('uid', userAccount.user.uid)
-      navigation.navigate("Home")
+      navigation.navigate("MainTab")
       
     } else {
       setMessageError("Preencha os campos")

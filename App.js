@@ -1,7 +1,7 @@
 import React from "react";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
 // import App from "./App";
-// import { configureSaveReducer } from "./src/store/configureStore";
+import { configureSaveReducer } from "./src/store/configureStore";
 import { NavigationContainer } from "@react-navigation/native";
 import MainStack from "./src/stack/MainStack";
 import * as firebase from 'firebase'
@@ -19,13 +19,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export default () => {
-  // const store = configureSaveReducer();
+  const store = configureSaveReducer();
   LogBox.ignoreAllLogs()
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
     <NavigationContainer>
       <MainStack />
     </NavigationContainer>
-    // </Provider>
+    </Provider>
   )
 }
