@@ -14,7 +14,7 @@ export default ({ navigation }) => {
         <View style={{
             flexDirection:'row',
             alignSelf:'center',
-            justifyContent:'space-between',
+            justifyContent:'center',
             alignItems:'center',
             flex:4,
             top:250
@@ -27,7 +27,8 @@ export default ({ navigation }) => {
                     alignSelf: 'center', 
                     backgroundColor: commonStyles.colors.background,
                     borderWidth: 2,
-                    borderColor:'#000'
+                    borderColor:'#000',
+                    width:'40%'
                     }}>
               <Text style={[styles.textToRegister, {color: '#FFF'}]}>Entrar</Text>
             </Button>
@@ -37,7 +38,8 @@ export default ({ navigation }) => {
                 alignSelf: 'center',
                 backgroundColor: commonStyles.colors.secundary,
                 borderWidth: 2,
-                borderColor:'#000'
+                borderColor:'#000',
+                width:'40%'
             }}>
               <Text style={[styles.textToRegister, {color: commonStyles.colors.textButtons}]}>Cadastrar</Text>
             </Button>
