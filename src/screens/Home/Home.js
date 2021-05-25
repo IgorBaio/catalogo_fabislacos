@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components/native";
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import Carousel from "./components/Carousel";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { DATA_CATALOGO } from '../../assets/data/data'
 import { Card } from "react-native-paper";
-
+import Logo from "../../assets/imgs/image_9.svg";
 
 const styles = StyleSheet.create({
     container: {
@@ -22,9 +22,16 @@ export default () => {
     return (
         <View style={styles.container} >
             <ScrollView style={{marginBottom:3}}>
-
+                {/* <Image source={Logo} style={{
+                    width:'80%',
+                    height:'10%',
+                    alignSelf:"center",
+                    opacity:0.8,
+                    top:35
+                }} /> */}
+                {/* <Logo  width={24} height={24} fill="#FF0000"  /> */}
                 <View style={{
-                    top: 250
+                    top: 20 
                 }}>
                     <TouchableOpacity style={styles.drawerMenuIcon} onPress={() => { }}>
                         <Icon name="menu" size={30} color="#FFF" />

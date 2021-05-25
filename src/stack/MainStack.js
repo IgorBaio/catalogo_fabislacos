@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home/Home";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
+import MainPage from "../screens/MainPage";
 import MainTab from "./MainTab";
 // import Barber from "../screens/Barber";
 
@@ -12,7 +13,7 @@ const Stack = createStackNavigator();
 export default (props) => {
   return (
     <Stack.Navigator
-      initialRouteName="MainTab"
+      initialRouteName="MainPage"
       screenOptions={{
         headerShown: false,
       }}
@@ -21,6 +22,7 @@ export default (props) => {
        <Stack.Screen name="MainTab" component={MainTab} />
        <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="MainPage" component={MainPage} />
      {/* <Stack.Screen name="Barber" component={Barber} /> */}
     </Stack.Navigator>
   );

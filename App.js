@@ -5,7 +5,7 @@ import { configureSaveReducer } from "./src/store/configureStore";
 import { NavigationContainer } from "@react-navigation/native";
 import MainStack from "./src/stack/MainStack";
 import * as firebase from 'firebase'
-import { LogBox } from "react-native";
+import { LogBox, StatusBar } from "react-native";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBVw26Xr_I-ry6ejYxAaeOZ_01I4_oxKjE",

@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     textToRegister: {
-        fontSize: 18,
+        fontSize: 12,
         fontWeight: 'bold',
         color:'#fff'
     },
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     enterButton: {
         backgroundColor: commonStyles.colors.secundary,
         height: 40,
-        width:300,
+        // width:300,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 5,

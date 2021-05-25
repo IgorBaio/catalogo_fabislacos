@@ -6,12 +6,13 @@ import commonStyles from '../../commonStyles'
 const InputArea = styled.View`
     width:90%;
     height:60px;
-    background-color: #422E47};
+    background-color: transparent;
     flex-direction:row;
-    border-radius:30px;
     padding-left:15px;
     align-items:center;
     margin-bottom:15px;
+    border: 2px;
+    border-color: #fff
 
 `;
 
@@ -27,7 +28,7 @@ const Input = styled.TextInput`
 export default ({ IconName, placeholder, value, onChangeText, password }) => {
   return (
     <InputArea colorInput={commonStyles.colors.primary}>
-      <IconMaterial name={IconName} size={25} color={commonStyles.colors.tertiary} />
+      <IconMaterial name={IconName} size={25} color={commonStyles.colors.textButtons} />
       <Input
         colorInput={commonStyles.colors.primary}
         placeholder={placeholder}
