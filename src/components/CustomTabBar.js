@@ -66,6 +66,7 @@ export default ({ state, navigation }) => {
           type: 'page',
           page: 0
         })
+        goTo('Home')
       }}>
         <MaterialIcons name='home' size={30}
           style={[
@@ -78,6 +79,7 @@ export default ({ state, navigation }) => {
           type: 'page',
           page: 1
         })
+        
       }}>
         <MaterialIcons name='search'
           style={[styles.icon, { backgroundColor: page === 1 ? 'rgba(224,120,121,0.4)' : '#353535' }]}
@@ -97,7 +99,9 @@ export default ({ state, navigation }) => {
         dispatch({
           type: 'page',
           page: 3
-        })}}>
+        })
+        goTo('Profile')
+        }}>
         <FontAwesome5 name='user-alt'
           style={[styles.icon, { backgroundColor: page === 3 ? 'rgba(224,120,121,0.4)' : '#353535' }]}
           color={page === 3 ? "#ECCC23" : "#FFF"} />
