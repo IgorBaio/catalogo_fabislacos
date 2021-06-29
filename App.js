@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { configureSaveReducer } from "./src/store/configureStore";
 import { NavigationContainer } from "@react-navigation/native";
 import MainStack from "./src/stack/MainStack";
-import * as firebase from 'firebase'
+import * as firebase from "firebase";
 import { LogBox, StatusBar } from "react-native";
 
 const firebaseConfig = {
@@ -13,19 +13,19 @@ const firebaseConfig = {
   projectId: "catalogofabislacos",
   storageBucket: "catalogofabislacos.appspot.com",
   messagingSenderId: "503577431829",
-  appId: "1:503577431829:web:751b5ccb76f3331fbae31c"
+  appId: "1:503577431829:web:751b5ccb76f3331fbae31c",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 export default () => {
   const store = configureSaveReducer();
-  LogBox.ignoreAllLogs()
+  LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
-    <NavigationContainer>
-      <MainStack />
-    </NavigationContainer>
+      <NavigationContainer>
+        <MainStack />
+      </NavigationContainer>
     </Provider>
-  )
-}
+  );
+};

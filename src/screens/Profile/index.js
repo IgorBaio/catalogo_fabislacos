@@ -1,11 +1,13 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TouchableOpacity, View, StyleSheet } from 'react-native'
 import { Container } from './styles'
 import GenericProfile from '../../assets/imgs/genericProfile.png'
-import { Title, Caption, Headline, Button } from 'react-native-paper'
+import { Title, Headline, Button, TextInput } from 'react-native-paper'
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import commonStyles from '../../../commonStyles'
+import BottomModal from '../../components/BottomModal/BottomModal'
 const data = [
     {
         id: 0,
@@ -16,10 +18,11 @@ export default () => {
     const [uriImage, setUriImage] = useState({uri:require('../../assets/imgs/genericProfile.png')})
     const navigation = useNavigation()
     const [state,setState] = useState({})
+    const [modalNameVisibility, setModalNameVisibility] = useState(false)
     useEffect(()=>{
         const getData = async () =>{
             const email = await AsyncStorage.getItem('email')
-            setState({...state,email})
+            setState({...state,email, nome: 'Nome'})
         }
         getData()
     },[])
@@ -90,8 +93,8 @@ export default () => {
                         fontSize: 30,
                         color:'#fff',
                         fontWeight:'bold'
-                    }}>Nome</Title>
-                    <TouchableOpacity >
+                    }}>{state.nome}</Title>
+                    <TouchableOpacity onPress={()=>setModalNameVisibility(true)} >
                         <Text style={{
                             marginLeft: 15,
                             fontSize: 18,
@@ -137,6 +140,34 @@ export default () => {
                     </Text>
                 </Button>
             </View>
+            {/* <Modal isVisible={modalNameVisibility} onDismiss={()=> setModalNameVisibility(false)} >
+            <View style={[styles.formContainer]}>
+            <View style={{ flexDirection: 'column', marginBottom: 10, alignSelf: 'stretch' }}>
+
+                <TextInput 
+                    label="Nome"
+                    style={{ backgroundColor:'#fff', width:'100%' }}
+                  />
+            </View>
+                  </View>
+            </Modal> */}
+            <BottomModal 
+                modalVisible={modalNameVisibility}
+                setModalVisible={setModalNameVisibility}
+                title={"Digite o Nome:"}
+                content={<TextInput 
+                    label="Nome"
+                    style={{ backgroundColor:'#fff', width:'100%' }}
+                    onChangeText={(text)=>setState({...state,nome:text})}
+                  />}
+            />
         </Container>
+        
     )
 }
+const styles = StyleSheet.create({
+    formContainer:{
+        justifyContent: 'flex-start',
+    }
+    
+});

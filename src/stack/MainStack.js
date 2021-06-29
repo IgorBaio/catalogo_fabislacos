@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator,CardStyleInterpolators } from "@react-navigation/stack";
 import Home from "../screens/Home/Home";
 import Register from "../screens/Register";
 import Login from "../screens/Login";
@@ -11,12 +11,16 @@ import MainTab from "./MainTab";
 const Stack = createStackNavigator();
 
 export default (props) => {
+ 
+  const NavigatorDefaultConfig = {
+    cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+    headerShown: false,
+  };
+
   return (
     <Stack.Navigator
       initialRouteName="MainTab"
-      screenOptions={{
-        headerShown: false,
-      }}
+      screenOptions={NavigatorDefaultConfig}
     >
        <Stack.Screen name="Home" component={Home} />
        <Stack.Screen name="MainTab" component={MainTab} />

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from "prop-types"
 import { Modal as ModalNative, Animated, Easing, StyleSheet, View, TouchableWithoutFeedback,TouchableOpacity } from 'react-native';
 
-import colors from "@utils/colors";
-import { getHeightByPercent, getWidthByPercent } from "@utils/size";
+// import colors from "@utils/colors";
+// import { getHeightByPercent, getWidthByPercent } from "@utils/size";
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
@@ -86,8 +86,8 @@ const Modal = ({children, isVisible, onShow, animated, onDismiss}) => {
 
 
 Modal.propTypes = {
-    isVisible: PropTypes.boolean,
-    animated: PropTypes.boolean,
+    isVisible: PropTypes.bool,
+    animated: PropTypes.bool,
 }
 
 Modal.defaultProps = {
@@ -112,11 +112,11 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 15,
         borderRadius: 20,
-        backgroundColor: colors.white,
+        backgroundColor: 'rgba(102, 102, 102, 1)',//colors.white,
         justifyContent: "center",
         alignItems: "center",
-        width: getWidthByPercent(85),
-        maxHeight: getHeightByPercent(85),
+        width: '85%',//getWidthByPercent(85),
+        maxHeight: '85%',//getHeightByPercent(85),
     },
     contentContainer: { 
         justifyContent: 'center', 
