@@ -31,7 +31,7 @@ export default () => {
                 }} /> */}
                 {/* <Logo  width={24} height={24} fill="#FF0000"  /> */}
                 <View style={{
-                    top: 20 
+                    top: 40 
                 }}>
                     <TouchableOpacity style={styles.drawerMenuIcon} onPress={() => { }}>
                         <Icon name="menu" size={30} color="#FFF" />
@@ -76,7 +76,7 @@ export default () => {
                                                 ]}
                                             />
                                             {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> */}
-                                            <Text style={styles.textImage}>Teste</Text>
+                                            <Text style={styles.textImage}>{item.name}</Text>
                                         </Card.Content>
 
                                     </Card>
@@ -107,7 +107,7 @@ export default () => {
                                                     }}
                                                 />
                                                 {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> */}
-                                                <Text style={styles.textImage}>Teste</Text>
+                                                <Text style={styles.textImage}>{item.name}</Text>
                                             </Card.Content>
 
                                         </Card>

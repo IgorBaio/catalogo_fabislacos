@@ -79,6 +79,7 @@ export default ({ state, navigation }) => {
           type: 'page',
           page: 1
         })
+        goTo('Search')
         
       }}>
         <MaterialIcons name='search'

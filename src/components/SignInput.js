@@ -25,17 +25,18 @@ const Input = styled.TextInput`
 
 
 
-export default ({ IconName, placeholder, value, onChangeText, password }) => {
+export default ({ IconName, placeholder, value, onChangeText, password,borderColor }) => {
   return (
-    <InputArea colorInput={commonStyles.colors.primary}>
-      <IconMaterial name={IconName} size={25} color={commonStyles.colors.textButtons} />
+    <InputArea colorInput={commonStyles.colors.primary} style={{borderColor:borderColor}}>
+      {IconName && <IconMaterial name={IconName} size={25} color={commonStyles.colors.textButtons} />}
       <Input
-        colorInput={commonStyles.colors.primary}
+        colorInput={borderColor || commonStyles.colors.primary}
         placeholder={placeholder}
-        placeholderTextColor={commonStyles.colors.secundary}
+        placeholderTextColor={borderColor ?'rgba(255,255,255,0.5)': '#fff' }
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={password}
+        style={{color: borderColor ? 'rgba(255,255,255,0.5)': '#fff' }}
       />
     </InputArea>
   );

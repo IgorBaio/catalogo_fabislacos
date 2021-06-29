@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 export default (props) => {
   return (
     <Stack.Navigator
-      initialRouteName="MainPage"
+      initialRouteName="MainTab"
       screenOptions={{
         headerShown: false,
       }}
