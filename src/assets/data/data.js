@@ -2,19 +2,22 @@ export const DATA_DESTAQUE = [
     {
         id:0,
         uri: require('../imgs/arcoPerolasBranco58.png'),
-        name:'arcoPerolasBranco58',
+        name:'Arco de pérolas branco',
+        price:'58,00',
         description:'arcoPerolasBranco58 arcoPerolasBranco58 arcoPerolasBranco58 arcoPerolasBranco58 arcoPerolasBranco58 arcoPerolasBranco58 arcoPerolasBranco58'
     },
     {
         id:1,
         uri: require('../imgs/arcoPerolasPreto35.jpg'),
-        name:'arcoPerolasPreto35',
+        name:'Arco de pérolas preto',
+        price: '25,00',
         description:'arcoPerolasPreto35 arcoPerolasPreto35 arcoPerolasPreto35 arcoPerolasPreto35 arcoPerolasPreto35 arcoPerolasPreto35 arcoPerolasPreto35'
     },
     {
         id:2,
         uri: require('../imgs/arcoPerolasPretoComPrataChumbo58.jpg'),
-        name:'arcoPerolasPretoComPrataChumbo58',
+        name:'arcoPerolasPretoComPrataChumbo',
+        price: '58,00',
         description:'arcoPerolasPretoComPrataChumbo58 arcoPerolasPretoComPrataChumbo58 arcoPerolasPretoComPrataChumbo58 arcoPerolasPretoComPrataChumbo58 arcoPerolasPretoComPrataChumbo58 arcoPerolasPretoComPrataChumbo58 arcoPerolasPretoComPrataChumbo58'
     },
     {

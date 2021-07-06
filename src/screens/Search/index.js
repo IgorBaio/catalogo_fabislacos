@@ -17,6 +17,14 @@ const styles = StyleSheet.create({
     drawerMenuIcon: {
         top: '-50%',
         right: '-90%'
+    },
+    textImage:{
+        paddingHorizontal:'10%',
+        top:5,
+        color:'#FFF',
+        fontWeight:'bold',
+        fontSize:16,
+        textDecorationLine:'underline'
     }
 })
 

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         
     },
     textImage:{
-        left:'10%',
+        paddingHorizontal:'10%',
         top:5,
         color:'#FFF',
         fontWeight:'bold',
@@ -32,7 +32,6 @@ export default ()=>{
                     marginRight:5,
                     elevation:4,
                     backgroundColor:'#626262',
-                    // flex:1,
                     marginHorizontal:30
                 }}
             >
@@ -48,247 +47,11 @@ export default ()=>{
                             marginHorizontal:5
                         }}
                         />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> */}
-                    <Text style={styles.textImage}>Teste</Text>
+                    <Text style={styles.textImage}>{item.name}</Text>
                 </Card.Content>
             </Card>
                 )
             })}
-            {/* <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-            <Card
-                style={{
-                    marginBottom:10,
-                    marginLeft:5,
-                    marginRight:5,
-                    elevation:4,
-                    backgroundColor:'#626262',
-                    // flex:1,
-                    marginHorizontal:30
-                }}
-            >
-                <Card.Content>
-                    <Card.Cover 
-                        source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}}
-                        style={{
-                            width:125,
-                            height:150,
-                            aspectRatio:1.5,
-                            resizeMode:'contain',
-                            marginHorizontal:5
-                        }}
-                        />
-                    {/* <Image style={styles.image} source={{uri:'https://img.ibxk.com.br/ms/images/highlights/000/051/496/48571.jpg?w=704&h=264&mode=crop&scale=both'}} /> 
-                    <Text style={styles.textImage}>Teste</Text>
-                </Card.Content>
-            </Card>
-        */}
         </ScrollView>
     )
 }

@@ -5,7 +5,7 @@ import Carousel from "./components/Carousel";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { DATA_CATALOGO } from '../../assets/data/data'
 import { Card } from "react-native-paper";
-import Logo from "../../assets/imgs/image_9.svg";
+import Logo from "../../assets/imgs/unknn.png";
 
 const styles = StyleSheet.create({
     container: {
@@ -15,23 +15,31 @@ const styles = StyleSheet.create({
     drawerMenuIcon: {
         top: '-50%',
         right: '-90%'
+    },
+    textImage:{
+        paddingHorizontal:'10%',
+        top:5,
+        color:'#FFF',
+        fontWeight:'bold',
+        fontSize:18,
+        textDecorationLine:'underline'
     }
 })
 
 export default () => {
     return (
         <View style={styles.container} >
-            <ScrollView style={{marginBottom:3}}>
-                {/* <Image source={Logo} style={{
-                    width:'80%',
-                    height:'10%',
+            <ScrollView style={{paddingBottom:130, marginBottom:3}}>
+                <Image source={Logo} style={{
+                    width:'90%',
+                    height:'15%',
                     alignSelf:"center",
                     opacity:0.8,
                     top:35
-                }} /> */}
-                {/* <Logo  width={24} height={24} fill="#FF0000"  /> */}
+                }} />
                 <View style={{
-                    top: 40 
+                    top: 40 ,
+                    marginBottom:180
                 }}>
                     <TouchableOpacity style={styles.drawerMenuIcon} onPress={() => { }}>
                         <Icon name="menu" size={30} color="#FFF" />

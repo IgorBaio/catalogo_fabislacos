@@ -1,4 +1,4 @@
-import React, { Children, memo, useState } from "react";
+import React, { Children, memo, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,21 +7,25 @@ import {
   Pressable,
   ScrollView,
   Animated,
-  TouchableWithoutFeedback, 
-  TouchableOpacity
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Easing
 } from "react-native";
-// import { scaleHeight, scaleWidth } from "@utils/size";
-// import colors from "@utils/colors";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import FONTS from "../../utils/fonts";
-// import SvgBackArrow from '@svgs/SvgBackArrow';
+import SvgBackArrow from '../../assets/svg/SvgBackArrow'
 
 const BottomModal = memo(({ modalVisible, setModalVisible, content, title }) => {
 
+  const animated = true
+  const [showed, setShowed] = useState(false);
+
   const [animationBackground, setAnimationBackground] = useState(new Animated.Value(0));
- 
+  const [opacity, setOpacity] = useState(new Animated.Value(0));
   const showAnimationBackground = () => {
     Animated.timing(animationBackground, {
-      toValue:1,
+      toValue: 1,
       duration: 500,
       useNativeDriver: false
     }).start()
@@ -29,7 +33,7 @@ const BottomModal = memo(({ modalVisible, setModalVisible, content, title }) => 
 
   const dismissModal = () => {
     Animated.timing(animationBackground, {
-      toValue:0,
+      toValue: 0,
       duration: 100,
       useNativeDriver: false
     }).start(() => {
@@ -38,70 +42,115 @@ const BottomModal = memo(({ modalVisible, setModalVisible, content, title }) => 
     });
   }
 
-  const backgroundInterpolation =  animationBackground.interpolate({
+  const animate = () => {
+    opacity.setValue(0);
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 600,
+      easing: Easing.elastic(1.1),
+      useNativeDriver: true
+    }).start();
+  };
+
+  useEffect(() => {
+    if (!modalVisible) {
+      Animated.timing(opacity, {
+        toValue: 0,
+        duration: 600,
+        easing: Easing.elastic(1.1),
+        useNativeDriver: true
+      }).start();
+      setShowed(false);
+    } else {
+
+    }
+  }, [modalVisible]);
+
+  const _onShow = () => {
+    animate();
+    if (onShow) onShow();
+    setShowed(true);
+  }
+
+  const backgroundInterpolation = animationBackground.interpolate({
     inputRange: [0, 1],
-    outputRange:["#66666600" , "#66666670"]
+    outputRange: ["#66666600", "#66666670"]
   });
 
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={dismissModal}
-      onShow={showAnimationBackground}
-      statusBarTranslucent={true}
-      accessible
-      accessibilityViewIsModal
-    >   
+    <KeyboardAvoidingView>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={dismissModal}
+        onShow={showAnimationBackground}
+        statusBarTranslucent={true}
+        accessible
+        accessibilityViewIsModal
+      >
         <Animated.View style={[styles.wrapperModal, {
           backgroundColor: backgroundInterpolation
         }]}>
-        <TouchableOpacity activeOpacity={1} style={styles.wrapperModal} onPress={() =>  dismissModal(false)}>   
-          
-          <View style={styles.centeredView}>
-            <TouchableWithoutFeedback>
-              <View style={styles.modalView} accessible accessibilityViewIsModal>
-                <Pressable
-                  style={[styles.button, styles.buttonClose]}
-                  onPress={() => dismissModal(false)}
-                >
-                  <Text style={styles.textModalClose}>Voltar</Text>
-                  {/* <SvgBackArrow color={'purple'} /> */}
-                </Pressable>
-                <ScrollView style={styles.scrollView}>
-                  <Text style={styles.textModalTitle}>{title}</Text>
-                  {content}
-                </ScrollView>
-              </View>
-            </TouchableWithoutFeedback>
-          </View>
-      </TouchableOpacity>
+          <TouchableOpacity activeOpacity={1} style={styles.wrapperModal} onPress={() => dismissModal(false)}>
+            <View style={styles.centeredView}>
+              <TouchableWithoutFeedback>
+                <View style={styles.modalView} accessible accessibilityViewIsModal>
+                  <KeyboardAwareScrollView
+                    keyboardOpeningTime={100}
+                    enableOnAndroid
+                    accessible
+                    contentContainerStyle={styles.contentContainer}
+                  >
+                    <Pressable
+                      style={[styles.button, styles.buttonClose]}
+                      onPress={() => dismissModal(false)}
+                    >
+                      <SvgBackArrow color={'purple'} />
+                      <Text style={styles.textModalClose}>{' '}Voltar</Text>
+                    </Pressable>
+                    <ScrollView style={styles.scrollView}>
+                      <Text style={styles.textModalTitle}>{title}</Text>
+                      {content}
+                    </ScrollView>
+                  </KeyboardAwareScrollView>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+
+
+          </TouchableOpacity>
         </Animated.View>
-    </Modal>
+      </Modal>
+
+    </KeyboardAvoidingView>
   );
 });
 export default BottomModal;
 
 const styles = StyleSheet.create({
-  scrollView:{
-    marginTop:20,
+  scrollView: {
+    marginTop: 20,
   },
-  wrapperModal:{
+  contentContainer: {
+    marginBottom: 25
+  },
+  wrapperModal: {
     position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
   },
-  button:{
-      flexDirection:'row',
-      alignItems: 'center'
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   centeredView: {
     marginTop: 100,//scaleHeight(100),
-    flex:1,
-    justifyContent:'flex-end'
+    flex: 1,
+    justifyContent: 'flex-end'
   },
   modalView: {
     backgroundColor: "white",

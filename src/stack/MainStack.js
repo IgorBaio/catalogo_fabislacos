@@ -6,7 +6,7 @@ import Register from "../screens/Register";
 import Login from "../screens/Login";
 import MainPage from "../screens/MainPage";
 import MainTab from "./MainTab";
-// import Barber from "../screens/Barber";
+import Preload from "../screens/Preload";
 
 const Stack = createStackNavigator();
 
@@ -19,7 +19,7 @@ export default (props) => {
 
   return (
     <Stack.Navigator
-      initialRouteName="MainTab"
+      initialRouteName="Preload"
       screenOptions={NavigatorDefaultConfig}
     >
        <Stack.Screen name="Home" component={Home} />
@@ -27,7 +27,7 @@ export default (props) => {
        <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="MainPage" component={MainPage} />
-     {/* <Stack.Screen name="Barber" component={Barber} /> */}
+     <Stack.Screen name="Preload" component={Preload} />
     </Stack.Navigator>
   );
 };
