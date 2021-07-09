@@ -18,6 +18,7 @@ import Profile from "../screens/Profile";
 import Preload from "../screens/Preload";
 import MainPage from "../screens/MainPage";
 import NeedConnect from "../screens/NeedConnect";
+import Chat from "../screens/Chat";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -98,6 +99,11 @@ const Main = memo(() => {
       <Tab.Screen
         name="Search"
         component={Search}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={Chat}
         options={{ headerShown: false }}
       />
       <Tab.Screen

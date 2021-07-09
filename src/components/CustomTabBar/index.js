@@ -56,7 +56,7 @@ export default ({ state, navigation }) => {
           type: 'page',
           page: 2
         })
-        emConstrucao()
+        goTo('Chat')
         }}>
         <MaterialCommunityIcons name='chat'
           style={[styles.icon, { backgroundColor: page === 2 ? 'rgba(224,120,121,0.4)' : '#353535' }]}

@@ -10,19 +10,18 @@ import ROUTES from '../../utils/routes'
 import NavigationService from '../../navigation/NavigationService'
 
 export default () => {
-    const [uriImage, setUriImage] = useState({uri:require('../../assets/imgs/genericProfile.png')})
     const [state,setState] = useState({})
     const [modalNameVisibility, setModalNameVisibility] = useState(false)
     useEffect(()=>{
         const getData = async () =>{
             const email = await AsyncStorage.getItem('email')
-            setState({...state,email, nome: 'Nome'})
+            const uriProfile = await AsyncStorage.getItem('uriProfile') || require('../../assets/imgs/genericProfile.png')
+            setState({...state,email, nome: 'Nome', uri:uriProfile})
         }
         getData()
     },[])
 
     const handleLogoutClick = async () => {
-        // await Api.logout();
         await AsyncStorage.setItem('email', '')
         await AsyncStorage.setItem('password', '')
         await AsyncStorage.setItem('uid', '')
@@ -42,10 +41,9 @@ export default () => {
           quality: 1,
         });
     
-        console.log(result);
-    
         if (!result.cancelled) {
-          setUriImage({uri:result.uri});
+          setState({...state, uri:result.uri})
+          await AsyncStorage.setItem('uriProfile',result.uri)
         }
       };
 
@@ -61,15 +59,13 @@ export default () => {
                 }}>
 
                     <Image
-                        // height={5}
-                        // width={5}
                         style={{
                             height: 150,
                             width: 150,
                             borderRadius: 75,
                             alignSelf: 'center'
                         }}
-                        source={uriImage.uri.toString().includes('file') ? {uri:uriImage.uri} : uriImage.uri} />
+                        source={state.uri?.toString().includes('file') ? {uri:state.uri} : state.uri} />
                     <TouchableOpacity onPress={pickImage} >
                         <Text style={{
                             marginLeft: 15,
