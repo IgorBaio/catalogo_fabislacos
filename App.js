@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import MainStack from "./src/stack/MainStack";
 import * as firebase from "firebase";
 import { LogBox, StatusBar } from "react-native";
+import Main from "./src/navigation/Main";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBVw26Xr_I-ry6ejYxAaeOZ_01I4_oxKjE",
@@ -23,9 +24,7 @@ export default () => {
   LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <MainStack />
-      </NavigationContainer>
+        <Main />
     </Provider>
   );
 };

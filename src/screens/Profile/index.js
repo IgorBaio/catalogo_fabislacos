@@ -1,23 +1,16 @@
-import { useNavigation } from '@react-navigation/native'
+import { CommonActions, useNavigation } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { Image, Text, TouchableOpacity, View, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import { Container } from './styles'
-import GenericProfile from '../../assets/imgs/genericProfile.png'
 import { Title, Headline, Button, TextInput } from 'react-native-paper'
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import commonStyles from '../../../commonStyles'
 import BottomModal from '../../components/BottomModal/BottomModal'
+import ROUTES from '../../utils/routes'
+import NavigationService from '../../navigation/NavigationService'
 
-const data = [
-    {
-        id: 0,
-        uri: require('../../assets/imgs/genericProfile.png')
-    }
-]
 export default () => {
     const [uriImage, setUriImage] = useState({uri:require('../../assets/imgs/genericProfile.png')})
-    const navigation = useNavigation()
     const [state,setState] = useState({})
     const [modalNameVisibility, setModalNameVisibility] = useState(false)
     useEffect(()=>{
@@ -33,9 +26,13 @@ export default () => {
         await AsyncStorage.setItem('email', '')
         await AsyncStorage.setItem('password', '')
         await AsyncStorage.setItem('uid', '')
-        navigation.reset({
-            routes: [{ name: 'Login' }]
-        })
+        NavigationService.dispatch(
+            () => {
+              return CommonActions.navigate('NotAuthedStack', {
+                screen: ROUTES.Home,
+              });
+            }
+          );
     }
     const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({

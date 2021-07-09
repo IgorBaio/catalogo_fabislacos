@@ -38,13 +38,13 @@ export const DATA_CATALOGO = [
     {
         id:0,
         uri: require('../imgs/arcoVeludo25.jpg'),
-        name:'arcoVeludo25',
+        name:'arco de veludo',
         description:'arcoVeludo25 arcoVeludo25 arcoVeludo25 arcoVeludo25 arcoVeludo25 arcoVeludo25 arcoVeludo25'
     },
     {
         id:1,
         uri: require('../imgs/kitArcoPulseiras26.jpg'),
-        name:'kitArcoPulseiras26',
+        name:'kit Arco Pulseiras',
         description:'kitArcoPulseiras26 kitArcoPulseiras26 kitArcoPulseiras26 kitArcoPulseiras26 kitArcoPulseiras26 kitArcoPulseiras26 kitArcoPulseiras26'
     },
     {
@@ -62,7 +62,7 @@ export const DATA_CATALOGO = [
     {
         id:4,
         uri: require('../imgs/lacoGravatinhaVeludoPerolas13.jpg'),
-        name:'lacoGravatinhaVeludoPerolas13',
+        name:'laco gravatinha de veludo com perolas13',
         description:'lacoGravatinhaVeludoPerolas13 lacoGravatinhaVeludoPerolas13 lacoGravatinhaVeludoPerolas13 lacoGravatinhaVeludoPerolas13 lacoGravatinhaVeludoPerolas13 lacoGravatinhaVeludoPerolas13 lacoGravatinhaVeludoPerolas13'
     },
     {
@@ -92,7 +92,7 @@ export const DATA_CATALOGO = [
     {
         id:9,
         uri: require('../imgs/lacoVeludoRosa26.jpg'),
-        name:'lacoVeludoRosa26',
+        name:'laco de veludo Rosa26',
         description:'lacoVeludoRosa26 lacoVeludoRosa26 lacoVeludoRosa26 lacoVeludoRosa26 lacoVeludoRosa26 lacoVeludoRosa26 lacoVeludoRosa26'
     },
     {

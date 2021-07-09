@@ -4,10 +4,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useDispatch } from "react-redux";
 import { Title } from "react-native-paper";
 import commonStyles from "../../../commonStyles";
+import NavigationService from "../../navigation/NavigationService";
+import ROUTES from "../../utils/routes";
+import { CommonActions } from "@react-navigation/native";
 
-export default ({navigation}) => {
+export default ({ navigation }) => {
   //#region Declarações
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   //#endregion
 
   //#region useEffects
@@ -17,25 +20,37 @@ export default ({navigation}) => {
       const passwordLogged = await AsyncStorage.getItem("password");
       const uidLogged = await AsyncStorage.getItem("uid");
 
-      if (emailLogged != null && emailLogged !== ''
-        && passwordLogged != null && passwordLogged !== ''
-        && uidLogged != null && uidLogged !== '') {
-        
+      if (
+        emailLogged != null &&
+        emailLogged !== "" &&
+        passwordLogged != null &&
+        passwordLogged !== "" &&
+        uidLogged != null &&
+        uidLogged !== ""
+      ) {
         dispatch({
-          type: 'login',
+          type: "login",
           user: {
             email: emailLogged,
-            uid: uidLogged
+            uid: uidLogged,
           },
-
-        })
-        navigation.reset({
-          routes: [{ name: "MainTab" }],
         });
+        NavigationService.dispatch(
+          () => {
+            return CommonActions.navigate('AuthedStack', {
+              screen: ROUTES.Home,
+            });
+          }
+        );
+       
       } else {
-        navigation.reset({
-          routes: [{ name: "MainPage" }],
-        });
+        NavigationService.dispatch(
+          () => {
+            return CommonActions.navigate('NotAuthedStack', {
+              screen: ROUTES.Home,
+            });
+          }
+        );
       }
     };
 
@@ -45,7 +60,7 @@ export default ({navigation}) => {
 
   return (
     <Container>
-      <Title style={{color:'#FFF'}}>Verificando dados</Title>
+      <Title style={{ color: "#FFF" }}>Verificando dados</Title>
       <LoadingIcon size="large" color={commonStyles.colors.textButtons} />
     </Container>
   );

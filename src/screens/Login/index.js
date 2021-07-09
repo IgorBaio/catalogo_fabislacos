@@ -5,6 +5,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as firebase from "firebase";
 import { styles } from './styles';
 import { Title } from 'react-native-paper';
+import NavigationService from '../../navigation/NavigationService';
+import { CommonActions } from '@react-navigation/native';
+import ROUTES from '../../utils/routes';
 
 export default ({ navigation }) => {
   //#region Declarações
@@ -32,7 +35,13 @@ export default ({ navigation }) => {
       await AsyncStorage.setItem('email', email)
       await AsyncStorage.setItem('password', password)
       await AsyncStorage.setItem('uid', userAccount.user.uid)
-      navigation.navigate("MainTab")
+      NavigationService.dispatch(
+        () => {
+          return CommonActions.navigate('AuthedStack', {
+            screen: ROUTES.Home,
+          });
+        }
+      );
 
     } else {
       setMessageError("Preencha os campos")
