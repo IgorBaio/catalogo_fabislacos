@@ -20,27 +20,27 @@ export default () => {
     
     return (
         <Container>
-            <View style={{ top: 50 }}>
-
-
+            <View style={{ margin: 50 }}>
                 <View style={{
-                    justifyContent: 'space-between',
+                    justifyContent: 'center',
                     alignItems: 'center',
-                    marginVertical: 40
+                    margin: 40
                 }}>
 
                     <Headline style={{
                         marginVertical: 10,
                         color:'#fff',
                         fontWeight:'bold'
-                    }}>Você precisa estar logado para Acessar esta página</Headline>
+                    }}>Você precisa estar logado para acessar esta página</Headline>
                     
                 </View>
 
+            </View>
                 <Button mode='contained' style={{
                     borderWidth:2,
                     borderColor:'#E07879',
-                    top:150
+                    top:'20%',
+                    bottom: 0
                     }}  color='#FFE8EF' onPress={handleConnectClick} >
                     <Text style={{
                         color:'#000',
@@ -51,7 +51,6 @@ export default () => {
                         Conectar
                     </Text>
                 </Button>
-            </View>
         </Container>
     )
 }

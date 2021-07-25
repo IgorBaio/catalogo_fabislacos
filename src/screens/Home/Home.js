@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components/native";
 import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
 import Carousel from "./components/Carousel";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { DATA_CATALOGO } from '../../assets/data/data'
 import { Card } from "react-native-paper";
-import Logo from "../../assets/imgs/unknn.png";
+import Logo from "../../assets/imgs/logoChatHeader.png";
 import Gallery from "../../components/Gallery";
+import { useDispatch } from "react-redux";
 
 const styles = StyleSheet.create({
     container: {
@@ -28,6 +29,12 @@ const styles = StyleSheet.create({
 })
 
 export default () => {
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        (async ()=> dispatch({type:'page', page:0}))
+        ();
+    },[])
+
     return (
         <View style={styles.container} >
             <ScrollView style={{paddingBottom:130, marginBottom:3}}>
@@ -36,7 +43,8 @@ export default () => {
                     height:'15%',
                     alignSelf:"center",
                     opacity:0.8,
-                    top:35
+                    top:35,
+                    resizeMode:'contain'
                 }} />
                 <View style={{
                     top: 40 ,

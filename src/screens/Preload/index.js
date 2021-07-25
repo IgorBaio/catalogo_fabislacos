@@ -28,6 +28,7 @@ export default ({ navigation }) => {
         uidLogged != null &&
         uidLogged !== ""
       ) {
+        // dispatch({type:'set_initials_state'});
         dispatch({
           type: "login",
           user: {

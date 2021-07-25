@@ -15,6 +15,9 @@ const saveReducer = (state = initialState, action) => {
         case 'login':
             state.user = action.user;
             return state;
+        case 'set_initials_state':
+            state = initialState
+            return state;
         default:
             return state;
     }

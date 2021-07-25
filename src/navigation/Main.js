@@ -19,6 +19,7 @@ import Preload from "../screens/Preload";
 import MainPage from "../screens/MainPage";
 import NeedConnect from "../screens/NeedConnect";
 import Chat from "../screens/Chat";
+import Header from "../screens/Chat/components/Header";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -94,22 +95,34 @@ const Main = memo(() => {
       <Tab.Screen
         name="Home"
         component={Home}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          headerTitle: () => <Header />
+          
+        })}
       />
       <Tab.Screen
         name="Search"
         component={Search}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          headerTitle: () => <Header />
+          
+        })}
       />
       <Tab.Screen
         name="Chat"
         component={Chat}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          headerTitle: () => <Header />
+          
+        })}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={({ navigation }) => ({
+          headerTitle: () => <Header />
+          
+        })}
       />
     </Tab.Navigator>
   );
