@@ -37,7 +37,6 @@ export default ()=>{
                 }}
             >
                 <Card.Content>
-                    {console.log(item.uri)}
                     <Card.Cover 
                         source={item.uri}
                         style={{

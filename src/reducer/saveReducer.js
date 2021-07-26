@@ -1,7 +1,8 @@
 const initialState = {
     itens: [],
     page: 0,
-    user: {}
+    user: {},
+    produtos:[]
 }
 
 const saveReducer = (state = initialState, action) => {
@@ -17,6 +18,9 @@ const saveReducer = (state = initialState, action) => {
             return state;
         case 'set_initials_state':
             state = initialState
+            return state;
+        case 'set_photos_data':
+            state.produtos = action.produtos
             return state;
         default:
             return state;

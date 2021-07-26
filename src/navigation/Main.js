@@ -6,8 +6,6 @@ import {
 } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { navigationRef } from "./NavigationService";
-import { useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
 import Home from "../screens/Home/Home";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
@@ -51,6 +49,11 @@ const Main = memo(() => {
       <Tab.Screen
         name={ROUTES.Search}
         component={Search}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name={ROUTES.Chat}
+        component={NeedConnect}
         options={{ headerShown: false }}
       />
       <Tab.Screen

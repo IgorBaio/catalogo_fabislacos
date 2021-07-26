@@ -2,8 +2,6 @@ import React from "react";
 import { Provider } from "react-redux";
 // import App from "./App";
 import { configureSaveReducer } from "./src/store/configureStore";
-import { NavigationContainer } from "@react-navigation/native";
-import MainStack from "./src/stack/MainStack";
 import * as firebase from "firebase";
 import { LogBox, StatusBar } from "react-native";
 import Main from "./src/navigation/Main";

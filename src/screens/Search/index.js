@@ -15,6 +15,7 @@ import { Card, TextInput } from "react-native-paper";
 import Logo from "../../assets/imgs/image_9.svg";
 import SignInput from "../../components/SignInput";
 import Gallery from "../../components/Gallery";
+import { useSelector } from "react-redux";
 
 const styles = StyleSheet.create({
   container: {
@@ -37,20 +38,20 @@ const styles = StyleSheet.create({
 
 export default () => {
   const [searchProduto, setSearchProduto] = useState();
-  const [data, setData] = useState(DATA_CATALOGO);
+  const DATA = useSelector(state=>state.save.produtos)
+  const [data, setData] = useState(DATA);
 
   const _onSearch = (text) => {
     setSearchProduto(text);
 
     text = text.toLowerCase();
-    let found = DATA_CATALOGO.map((item) => {
-      if (item.name.toLowerCase().includes(text)) {
+    let found = DATA.map((item) => {
+      if (item.produto.nome.toLowerCase().includes(text)) {
         return item;
       }
     });
-    found.forEach((i) => console.log(i?.name.toLocaleLowerCase()));
     if (!text || text === "") {
-      setData(DATA_CATALOGO);
+      setData(DATA);
     } else {
       found = found.filter((f) => f !== undefined && f !== null);
       setData(found);
@@ -96,7 +97,7 @@ export default () => {
             top: 20,
           }}
         >
-          <View style={{ paddingBottom: 250 }}>
+          <View style={{ paddingBottom: '5%' }}>
             <Gallery DATA={data} />
           </View>
         </View>

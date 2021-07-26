@@ -66,11 +66,6 @@ export default ({ navigation }) => {
   const { messages } = useMessages();
   const ref = useRef(null);
 
-  
-  useEffect(() => {
-    ref.current.scrollTop = ref.current.scrollHeight;
-  }, [messages]);
-
   const [message, setMessage] = useState("");
   const [state, setState] = useState({
     messages: [],
@@ -85,7 +80,6 @@ export default ({ navigation }) => {
     getData()
     },[])
 
-    console.log(state.uri)
   function handleSubmit() {
     if (!!message) {
       MessagingService.sendMessage(message, user, firebase);

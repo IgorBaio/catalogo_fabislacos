@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import FONTS from "../../../../utils/fonts";
 import {
   StyleSheet,
   Text,
@@ -8,13 +7,10 @@ import {
   Pressable,
   Image,
 } from "react-native";
-// import colors from "@utils/colors";
 import { scaleHeight, scaleWidth } from "../../../../utils/size";
-// import SvgLogo from "@svgs/Logo/SvgLogo";
 import ROUTES from "../../../../utils/routes";
 import { useNavigation } from "@react-navigation/native";
 import { Title } from "react-native-paper";
-import SvgBackArrow from "../../../../assets/svg/SvgBackArrow";
 import commonStyles from "../../../../../commonStyles";
 
 const HeaderLogo = memo((props) => {

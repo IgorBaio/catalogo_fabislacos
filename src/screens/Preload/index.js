@@ -7,11 +7,20 @@ import commonStyles from "../../../commonStyles";
 import NavigationService from "../../navigation/NavigationService";
 import ROUTES from "../../utils/routes";
 import { CommonActions } from "@react-navigation/native";
+import useProdutos from "../../hooks/useProdutos";
 
 export default ({ navigation }) => {
   //#region Declarações
   const dispatch = useDispatch();
+  const { produtos } = useProdutos();
   //#endregion
+
+    useEffect(() => {
+      dispatch({
+        type: 'set_photos_data',
+        produtos
+      })
+  }, [produtos]);
 
   //#region useEffects
   useEffect(() => {

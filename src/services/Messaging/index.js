@@ -2,7 +2,6 @@ import { db } from "../../../App"
 
 const MessagingService = {
   async getMessages() {
-    console.log(!!db)
     return db
       .collection('messages')
       .then(messages => {
