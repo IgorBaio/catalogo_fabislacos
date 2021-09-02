@@ -8,6 +8,8 @@ import NavigationService from "../../navigation/NavigationService";
 import ROUTES from "../../utils/routes";
 import { CommonActions } from "@react-navigation/native";
 import useProdutos from "../../hooks/useProdutos";
+import { LOGIN, SET_PHOTOS_DATA } from "../../store/actions/types";
+import { setProducts } from "../../store/actions";
 
 export default ({ navigation }) => {
   //#region Declarações
@@ -16,10 +18,11 @@ export default ({ navigation }) => {
   //#endregion
 
     useEffect(() => {
-      dispatch({
-        type: 'set_photos_data',
-        produtos
-      })
+      // dispatch({
+      //   type: SET_PHOTOS_DATA,
+      //   produtos
+      // })//TODO Testar se deu certo
+      dispatch(setProducts(produtos))
   }, [produtos]);
 
   //#region useEffects
@@ -39,7 +42,7 @@ export default ({ navigation }) => {
       ) {
         // dispatch({type:'set_initials_state'});
         dispatch({
-          type: "login",
+          type: LOGIN,
           user: {
             email: emailLogged,
             uid: uidLogged,

@@ -4,6 +4,7 @@ import { Alert, View } from 'react-native';
 import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from 'react-redux';
 import { TabArea, TabItem } from './styles';
+import { PAGE } from '../../store/actions/types';
 
 const styles = StyleSheet.create({
   icon: {
@@ -27,7 +28,7 @@ export default ({ state, navigation }) => {
     <TabArea>
       <TabItem onPress={() => {
         dispatch({
-          type: 'page',
+          type: PAGE,
           page: 0
         })
         goTo('Home')
@@ -40,7 +41,7 @@ export default ({ state, navigation }) => {
       </TabItem>
       <TabItem onPress={() => {
         dispatch({
-          type: 'page',
+          type: PAGE,
           page: 1
         })
         goTo('Search')
@@ -53,7 +54,7 @@ export default ({ state, navigation }) => {
 
       <TabItem onPress={() => {
         dispatch({
-          type: 'page',
+          type: PAGE,
           page: 2
         })
         goTo('Chat')
@@ -64,7 +65,7 @@ export default ({ state, navigation }) => {
       </TabItem>
       <TabItem onPress={() => {
         dispatch({
-          type: 'page',
+          type: PAGE,
           page: 3
         })
         goTo('Profile')
