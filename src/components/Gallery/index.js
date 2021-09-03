@@ -21,10 +21,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({ DATA = [] }) => {
+export default ({ DATA = [], navigation }) => {
   return (
     <>
-      {DATA.length > 0 &&
+      {DATA?.length > 0 &&
         DATA.map((item, index) => {
           if (index % 2 === 0) {
             return (
@@ -41,6 +41,7 @@ export default ({ DATA = [] }) => {
 
                     marginHorizontal: 30,
                   }}
+                  onPress={()=>navigation.navigate("Details",{item})}
                 >
                   <Card.Content>
                     <Card.Cover
@@ -52,7 +53,7 @@ export default ({ DATA = [] }) => {
                           resizeMode: "contain",
                           marginHorizontal: 5,
                         },
-                        parseInt(index + 1, 10) <= DATA.length - 1 &&
+                        parseInt(index + 1, 10) <= DATA?.length - 1 &&
                         parseInt(index, 10) % 2 === 0 &&
                         item?.produto.file.base64
                           ? {
@@ -67,7 +68,7 @@ export default ({ DATA = [] }) => {
                     <Text style={styles.textImage}>{item.produto.nome}</Text>
                   </Card.Content>
                 </Card>
-                {parseInt(index + 1, 10) < DATA.length &&
+                {parseInt(index + 1, 10) < DATA?.length &&
                 !!DATA[index + 1]?.produto.file.base64 ? (
                   <Card
                     key={DATA[index + 1]?.key}
@@ -80,6 +81,7 @@ export default ({ DATA = [] }) => {
                       flex: 1,
                       marginHorizontal: 30,
                     }}
+                    onPress={()=>navigation.navigate("Details",{item:DATA[index + 1]})}
                   >
                     <Card.Content>
                       <Card.Cover

@@ -30,8 +30,7 @@ const saveReducer = (state = initialState, action) => {
       state = initialState;
       return state;
     case SET_PHOTOS_DATA:
-      state.produtos = action.produtos;
-      // state.produtos = action.payload
+      state.produtos = action.payload
 
       return state;
     /*
@@ -40,7 +39,7 @@ const saveReducer = (state = initialState, action) => {
                 loading: true
             }
             */
-    case SET_PHOTOS_DATA_SUCC:
+    case SET_PHOTOS_DATA_SUCCESS:
       state.produtos = action.produtos;
       // state.produtos = action.payload
 

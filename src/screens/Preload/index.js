@@ -17,12 +17,8 @@ export default ({ navigation }) => {
   const { produtos } = useProdutos();
   //#endregion
 
-    useEffect(() => {
-      // dispatch({
-      //   type: SET_PHOTOS_DATA,
-      //   produtos
-      // })//TODO Testar se deu certo
-      dispatch(setProducts(produtos))
+  useEffect(() => {
+    dispatch(setProducts(produtos))
   }, [produtos]);
 
   //#region useEffects
@@ -55,7 +51,7 @@ export default ({ navigation }) => {
             });
           }
         );
-       
+
       } else {
         NavigationService.dispatch(
           () => {

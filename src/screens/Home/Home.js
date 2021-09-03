@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => {
+export default ({navigation}) => {
   const dispatch = useDispatch();
   const DATA = useSelector(state=>state.save.produtos)
 
@@ -43,12 +43,12 @@ export default () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={{ paddingBottom: DATA.length>0 ? 130 : '100%', marginBottom: 3 }}>
+      <ScrollView style={{ paddingBottom: DATA?.length>0 ? 130 : '100%', marginBottom: 3 }}>
         <Image
           source={Logo}
           style={{
             width: "90%",
-            height: DATA.length>0 ? "8%" : '15%',
+            height: DATA?.length>0 ? "8%" : '15%',
             alignSelf: "center",
             opacity: 0.8,
             top: 35,
@@ -75,8 +75,8 @@ export default () => {
             Descubra!!!
           </Text>
           <Carousel />
-          <View style={{ paddingBottom: DATA.length> 0 ? '5%': '100%' }}>
-            <Gallery DATA={DATA || []} />
+          <View style={{ paddingBottom: DATA?.length> 0 ? '5%': '100%' }}>
+            <Gallery DATA={DATA || []} navigation={navigation}/>
             {/* <Gallery  /> */}
           </View>
         </View>

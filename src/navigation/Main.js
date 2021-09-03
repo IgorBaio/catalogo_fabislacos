@@ -18,6 +18,7 @@ import MainPage from "../screens/MainPage";
 import NeedConnect from "../screens/NeedConnect";
 import Chat from "../screens/Chat";
 import Header from "../screens/Chat/components/Header";
+import ProductDetails from "../screens/ProductDetails";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,6 +60,11 @@ const Main = memo(() => {
       <Tab.Screen
         name={ROUTES.Profile}
         component={NeedConnect}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name={"Details"}
+        component={ProductDetails}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>
@@ -122,6 +128,14 @@ const Main = memo(() => {
       <Tab.Screen
         name="Profile"
         component={Profile}
+        options={({ navigation }) => ({
+          headerTitle: () => <Header />
+          
+        })}
+      />
+      <Tab.Screen
+        name="Details"
+        component={ProductDetails}
         options={({ navigation }) => ({
           headerTitle: () => <Header />
           
